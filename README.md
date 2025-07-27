@@ -4,6 +4,7 @@ AI system for detecting whether a bird is on or off the nest using multiple mode
 This was used to train a model which could recognize when the mother was on or off the nest.
 ## Project Summary:
 **This repo code was used to train a very specific model, that when coupled with my Raspberry PI Bird Camera, could provide useful insight on the mother bird's behavior over brood's cycle!**
+
 &nbsp;&nbsp;&nbsp;&nbsp;In this project I put together a Raspberry PI to stream video over RMTP to a YouTube live stream.
 Additionally, I created an API on my brother's website I created, (liamthechemist.com, a private repo) and had
 a snapshot be piped from ffmpeg, every 20 seconds, to the PI's file system. Then another service on the device would upload that snapshot to the website's API endpoint as a curl cmd.
