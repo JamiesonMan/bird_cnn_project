@@ -1,8 +1,22 @@
 # Bird Nest Detection System
 
 AI system for detecting whether a bird is on or off the nest using multiple model architectures.
+This was used to train a model which could recognize when the mother was on or off the nest.
+## Project Context:
+In this project I put together a Raspberry PI Camera Module to stream video with ffmpeg over RMTP to a YouTube live stream.
+Additionally, I created an API on my brother's website I created, (liamthechemist.com, a private repo) and had
+a snapshot be piped from ffmpeg, every 20 seconds, to the PI's file system. Then another service on the device would upload that snapshot to the website's API endpoint as a curl cmd.
+From that point a CNN transfer model (located on the web server), trained with the files in this repo, would infer the snapshot.
 
-## **RECOMMENDED: GPU-Accelerated CNN**
+The website would push the model's results and probability to a monitor.log file full of all mother bird activity.
+Additionally, I equipped the website with the ability to save images that the model likely got wrong.
+I did this by saving the last 5 snapshots submitted through the API endpoint. The snapshots' file names would be changed to represent the AI's prediction for that image, and the timestamp. If amongst those 5 most recent snapshots, at any point, the middle snapshot was the opposite status of the others, we would save this snapshot to an "outliers" folder. Additionally, if ever the AI's confidence score was lower then 75%, we would save that snapshot to a "possible misclassification" folder. Everyday I would determine if the AI was actually incorrect and then manually insert these new images into the training dataset, then I would retrain a new model. In the end the model was correct about 99% of the time.
+
+### Project Hardware:
+   - Computer: Raspberry Pi Zero 2W /w an applied heatsink I bought
+   - OS: Raspberry PI OS Lite (32bit) Debian Bookworm
+   - Camera: Raspberry Pi Camera Module v3 - NoIR - Wide (120 deg)
+   - IR Light: Univivi 90 deg 8-LED Outdoor 850nm IR Light (placed a respectful distance from nest)
 
 ### Training Commands (CNN):
 ```bash
