@@ -5,22 +5,22 @@ This was used to train a model which could recognize when the mother was on or o
 ## Project Context:
 In this project I put together a Raspberry PI Camera Module to stream video with ffmpeg over RMTP to a YouTube live stream.
 
-   Additionally, I created an API on my brother's website I created, (liamthechemist.com, a private repo) and had
+	Additionally, I created an API on my brother's website I created, (liamthechemist.com, a private repo) and had
 a snapshot be piped from ffmpeg, every 20 seconds, to the PI's file system. Then another service on the device would upload that snapshot to the website's API endpoint as a curl cmd.
 From that point a CNN transfer model (located on the web server), trained with the files in this repo, would infer the snapshot.
 
-   The website would push the model's results and probability to a monitor.log file full of all mother bird activity.
+	The website would push the model's results and probability to a monitor.log file full of all mother bird activity.
 Additionally, I equipped the website with the ability to save images that the model likely got wrong.
 I did this by saving the last 5 snapshots submitted through the API endpoint. The snapshots' file names would be changed to represent the AI's prediction for that image. If at any point amongst those 5 most recent snapshots the middle snapshot was the opposite status of the others, we would save this snapshot to an "outliers" folder. Additionally, if ever the AI's confidence score was lower then 75%, we would save that snapshot to a "possible misclassification" folder. I would later be able to determine if those images were indeed misclassifications and then manually insert these new images into the training dataset, then I would retrain a new model. In the end the model was correct about 99% of the time. However, some problems did make this data collection less then optimal.
 
 ### Problems Encountered
-   The bird species is a Dark Eyed Junco species. In total 4 eggs were laid, of those 4 eggs all 4 successfully incubated and hatched. 
+	The bird species is a Dark Eyed Junco species. In total 4 eggs were laid, of those 4 eggs all 4 successfully incubated and hatched. 
 However the biggest issue with data collection is that these chicks sadly never came to fledge. I don't entirely know what happened to cause them to pass, but I think it has to do with the very unfortunate nesting location. The nest was located on my back patio in a lifted potted plant (approx. 8ft off the ground). I own a dog, who's presence would scare both the father and mother bird from returning with food, I think this might've resulted in the brood not recieving enough nutrients or simply stressing the mother out too much. In either case, I can rationalize it not being the cause of the camera or IR light, as both these were installed preincubation when the mother was gone from nesting location. The camera module was about 2 ft above the nest, and the IR Light is a wavelength not anymore visible to birds then humans (very slight red glow from the source). The light was about 4-5ft away from the nest.
    
-   Originally, the website was equipped only with the legacy AI model, which can't provide a confidence score.
+	Originally, the website was equipped only with the legacy AI model, which can't provide a confidence score.
 Thus the inferred results are partially binary and post processing can't smartly edit monitor.log regarding that.
 
-   Another major issue is that the stream was 1080p 30fps, which sometimes resulted in thermal throttling or even shutdowns.
+	Another major issue is that the stream was 1080p 30fps, which sometimes resulted in thermal throttling or even shutdowns.
 This project took place in the summer, tempatures were 80-90 degrees on average during data collection. This resulted in tempatures rising above 80C on the chip, causing throttling and shutdowns. Sometimes if the reboot takes too long, the video stream is ended on youtubes end, and I have to manually start a new youtube stream. This however, didn't affect data collection too much because snapshots would still be getting send directly to the website endpoint for processing. I could've fixed this by putting vent holes in the make-shift camera case I was using; a plastic party cup with 2 layered platforms inside for the camera itself on the bottom and the raspberry pi unit directly above.
 
    Overall, the data is only about 2 days worth in total.
