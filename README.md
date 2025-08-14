@@ -1,5 +1,5 @@
 # Bird Nest Detection System
-
+Here is a link to a part of the entire stream that you can still watch. https://www.youtube.com/live/vQA4zKOyqT8?si=DcQPsPyXg9NaCLlF
 AI system for detecting whether a bird is on or off the nest using multiple model architectures.
 ## Project Summary:
 **&nbsp;&nbsp;&nbsp;&nbsp;This repo code was used to train a very specific model, that when coupled with my Raspberry PI Bird Camera, could provide useful insight on the mother and father birds' behavior over the nesting cycle!**
