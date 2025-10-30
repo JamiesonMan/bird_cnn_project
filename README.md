@@ -23,7 +23,7 @@ Thus the inferred results are partially binary and post processing can't smartly
 &nbsp;&nbsp;&nbsp;&nbsp;Another major issue is that the stream was 1080p 30fps, which sometimes resulted in thermal throttling or even shutdowns.
 This project took place in the summer, tempatures were 80-90 degrees on average during data collection. This resulted in tempatures rising above 80C on the chip, causing throttling and shutdowns. Sometimes if the reboot takes too long, the video stream is ended on youtubes end, and I have to manually start a new youtube stream. This however, didn't affect data collection too much because snapshots would still be getting send directly to the website endpoint for processing. I could've fixed this by putting vent holes in the make-shift camera case I was using; a plastic party cup with 2 layered platforms inside for the camera itself on the bottom and the raspberry pi unit directly above.
 
-   Overall, the data is only about 2 days worth in total.
+   Overall, the data is only about 2 days worth in total and viewable on the repo.
 
 ### Project Hardware:
    - **Computer: Raspberry Pi Zero 2W /w an applied heatsink I bought**
