@@ -113,7 +113,7 @@ python test_compatibility.py
 
 | Model | Training Time | Accuracy | GPU Support | Confidence Scores |
 |-------|---------------|----------|-------------|-------------------|
-| **CNN + Transfer (Recommended)** | 3-6 min | 90-95% | Yes | Yes |
+| **CNN + Transfer (Used)** | 3-6 min | 90-95% | Yes | Yes |
 | CNN | 8-15 min | 85-92% | Yes | Yes |
 | Enhanced SVM | 20-40 min | 75-85% | No | Yes |
 | Original HOG+SVM | 2-5 min | 70-80% | No | No |
