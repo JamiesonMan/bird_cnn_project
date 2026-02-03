@@ -22,6 +22,14 @@ Thus the inferred results are partially binary and post processing can't smartly
 This project took place in the summer, tempatures were 80-90 degrees on average during data collection. This resulted in tempatures rising above 80C on the chip, causing throttling and shutdowns. Sometimes if the reboot takes too long, the video stream is ended on youtubes end, and I have to manually start a new youtube stream. This however, didn't affect data collection too much because snapshots would still be getting send directly to the website endpoint for processing. I could've fixed this by putting vent holes in the make-shift camera case I was using; a plastic party cup with 2 layered platforms inside for the camera itself on the bottom and the raspberry pi unit directly above.
 
    Overall, the data is only about 50 hours worth in total and viewable on the repo.
+   However, this project was more proof of concept, and proof that I could rapidly develop a pipeline given a limited time scenario.
+
+In this repository, which was not actively developed on since it really didn't start out as something I thought would be worth documenting, until suddenly the project actually felt real, and data was real. You will find images of the augmented images and real images pulled for training, different script files in python used to train the model, monitor.log containing captured data, however log file changed rapidly because I continued working on another better model while the histogram based model was active.
+
+The models I trained included originally a basic histogram model, this worked not amazingly because of the rapid change of lighting and shape especially after the eggs hatched. Then a CNN model was used and was much better, an additional improvement was made by using a transfer model already containing weights depicting basic understanding of shape/edge detection, this accelerated the models "ability to navigate down the gradient more rapidly". Let me explain what I mean by down the gradient. If you think of a given model's weighted matrix and bias as a function whose output is, in this case either Yes or No. Then during back propogation of those weighted matrixes and biases it's important to think, "If the model was wrong to predict No and instead should have predicted Yes, differentially, what changes to previous parameters would result in a "step" towards Yes the next time this image comes up. This is the essense of ML in general, and is often depicted as gravitating down the gradient of some complex space to settle. However, what I am really getting at here with the transfer model is the fact that it often sets your model up to find a more global minimum rather then the local minimum your randomly weighted model might stumble into.
+
+
+
 
 ### Project Hardware:
    - **Computer: Raspberry Pi Zero 2W /w an applied heatsink I bought**
