@@ -9,7 +9,7 @@ Note that this page was down for a while but I brought up the static files to sh
 ![PDF of what birdcam page looked like on liamthechemist](BirdCamPage.pdf)
 
 &nbsp;&nbsp;&nbsp;&nbsp;In this project I put together a Raspberry PI to stream video over RMTP to a YouTube live stream.
-Additionally, I created an API on my brother's website I created, (**liamthechemist.com**, a private repo) and had
+Additionally, I created an API on my brother's website I created, (**liamthechemist.com**, a public repo containing demo) and had
 a snapshot be piped from ffmpeg, every 20 seconds, to the PI's file system. Then another service on the device would upload that snapshot to the website's API endpoint as a curl cmd.
 From that point a CNN transfer model (located on the web server), trained with the files in this repo, would infer the snapshot.
 
